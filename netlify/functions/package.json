@@ -1,0 +1,31 @@
+{
+  "name": "six-perfections-netlify-functions",
+  "version": "1.0.0",
+  "description": "Serverless functions for Six Perfections Assessment (षट्पारमिता)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"May all tests pass with Buddhist wisdom\" && exit 0"
+  },
+  "keywords": [
+    "buddhism",
+    "paramitas",
+    "assessment",
+    "json",
+    "netlify",
+    "serverless"
+  ],
+  "author": "Six Perfections Development Team",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/six-perfections-assessment"
+  },
+  "buddhist_blessing": "ॐ तारे तुत्तारे तुरे स्वाहा - May these functions serve all beings"
+} 

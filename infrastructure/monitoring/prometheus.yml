@@ -1,0 +1,90 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  # API Gateway monitoring
+  - job_name: 'api-gateway'
+    static_configs:
+      - targets: ['api-gateway:3000']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+    scrape_timeout: 5s
+
+  # Auth Service monitoring
+  - job_name: 'auth-service'
+    static_configs:
+      - targets: ['auth-service:8001']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+
+  # User Management Service monitoring
+  - job_name: 'user-management'
+    static_configs:
+      - targets: ['user-management:8002']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+
+  # Assessment Engine monitoring
+  - job_name: 'assessment-engine'
+    static_configs:
+      - targets: ['assessment-engine:8003']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+
+  # Content Management Service monitoring
+  - job_name: 'content-management'
+    static_configs:
+      - targets: ['content-management:8004']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+
+  # Analytics Service monitoring
+  - job_name: 'analytics-service'
+    static_configs:
+      - targets: ['analytics-service:8005']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+
+  # Notification Service monitoring
+  - job_name: 'notification-service'
+    static_configs:
+      - targets: ['notification-service:8006']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+
+  # Database monitoring
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres:5432']
+    scrape_interval: 30s
+
+  - job_name: 'mongodb'
+    static_configs:
+      - targets: ['mongodb:27017']
+    scrape_interval: 30s
+
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']
+    scrape_interval: 30s
+
+  # Infrastructure monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'grafana'
+    static_configs:
+      - targets: ['grafana:3000']
+
+# Alerting rules
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093 

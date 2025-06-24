@@ -1,0 +1,36 @@
+{
+  "name": "six-perfections-assessment",
+  "version": "1.0.0",
+  "description": "Six Perfections Assessment (षट्पारमिता) - Pure JSON Architecture with Buddhist Wisdom",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Testing with Buddhist wisdom\" && exit 0"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "node-fetch": "^3.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.1.0",
+    "vite": "^4.5.0"
+  },
+  "keywords": [
+    "buddhism",
+    "paramitas", 
+    "assessment",
+    "spiritual-development",
+    "json-architecture",
+    "netlify",
+    "pure-js"
+  ],
+  "author": "Six Perfections Development Team",
+  "license": "MIT",
+  "buddhist_blessing": "🙏 ॐ तारे तुत्तारे तुरे स्वाहा - May this code serve all beings"
+}

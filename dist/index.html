@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Buddhist blessing in meta -->
+  <meta name="description" content="Six Perfections Assessment (षट्पारमिता) - A spiritual development application bridging ancient Buddhist wisdom with modern psychology" />
+  <meta name="keywords" content="Buddhism, Paramitas, Spiritual Assessment, Meditation, Mindfulness, Six Perfections" />
+  <meta name="author" content="Six Perfections Development Team" />
+  
+  <!-- Buddhist mantras for protection -->
+  <meta name="blessing" content="ॐ तारे तुत्तारे तुरे स्वाहा - Green Tara's protection" />
+  <meta name="mantra" content="ॐ गते गते पारगते पारसंगते बोधि स्वाहा - Heart of Wisdom" />
+  
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="षट्पारमिता - Six Perfections Assessment" />
+  <meta property="og:description" content="Discover and develop your spiritual potential through the ancient Buddhist path of Six Perfections" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Fonts for Sanskrit/Devanagari -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <title>🙏 षट्पारमिता - Six Perfections Assessment</title>
+  
+  <style>
+    /* Loading screen with Buddhist aesthetics */
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      z-index: 9999;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    #loading h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+    }
+    
+    #loading p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+    }
+    
+    .lotus-spinner {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      animation: lotus-spin 1s linear infinite;
+    }
+    
+    @keyframes lotus-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .blessing {
+      position: absolute;
+      bottom: 2rem;
+      text-align: center;
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-7aa0bb4a.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-b1791c80.js">
+  <link rel="stylesheet" href="/assets/index-67ac487d.css">
+</head>
+<body>
+  <!-- Buddhist Loading Screen -->
+  <div id="loading">
+    <h1>🙏 षट्पारमिता</h1>
+    <p>Six Perfections Assessment</p>
+    <div class="lotus-spinner"></div>
+    <div class="blessing">
+      <p>ॐ गते गते पारगते पारसंगते बोधि स्वाहा</p>
+      <p>May all beings cross to the other shore of enlightenment</p>
+    </div>
+  </div>
+  
+  <!-- React Root -->
+  <div id="root"></div>
+  
+  
+  
+  <script>
+    // Hide loading screen when React app loads
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loading = document.getElementById('loading');
+        if (loading) {
+          loading.style.opacity = '0';
+          loading.style.transition = 'opacity 0.5s ease';
+          setTimeout(() => {
+            loading.remove();
+          }, 500);
+        }
+      }, 1000); // Show loading for at least 1 second
+    });
+    
+    // Buddhist console blessing
+    console.log('%c🙏 षट्पारमिता - Six Perfections Assessment', 'color: #4ECDC4; font-size: 20px; font-weight: bold;');
+    console.log('%cॐ तारे तुत्तारे तुरे स्वाहा', 'color: #FF6B6B; font-size: 14px;');
+    console.log('%cMay this technology serve the liberation of all beings', 'color: #666; font-style: italic;');
+  </script>
+</body>
+</html> 

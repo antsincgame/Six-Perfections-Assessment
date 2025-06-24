@@ -1,0 +1,142 @@
+{
+  "instrument": {
+    "name": "Compassion Motivation and Action Scale (CMAS)",
+    "description": "Validated scale for measuring compassion motivation and compassionate action",
+    "version": "1.0",
+    "paramita": "generosity",
+    "totalQuestions": 20,
+    "estimatedDuration": 10,
+    "validationStudyReference": "Gilbert, P., & Choden. (2013). Mindful Compassion",
+    "authors": ["Paul Gilbert", "Choden"],
+    "language": "en",
+    "responseType": "likert_5",
+    "scoringMethod": "weighted_sum"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "text": "I am motivated to help others when they are struggling",
+      "textSanskrit": "दुःखग्रस्तान् अन्यान् साहाय्यं कर्तुं प्रेरितोऽस्मि",
+      "textTibetan": "སྡུག་བསྔལ་མྱོང་བཞིན་པའི་གཞན་ལ་རོགས་པ་བྱེད་ལ་སེམས་སྐྱོ།",
+      "order": 1,
+      "reverseScored": false,
+      "paramitaAspect": "compassionate_motivation",
+      "weight": 1.0,
+      "responseOptions": [
+        { "value": 1, "label": "Never true" },
+        { "value": 2, "label": "Rarely true" },
+        { "value": 3, "label": "Sometimes true" },
+        { "value": 4, "label": "Often true" },
+        { "value": 5, "label": "Always true" }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "I take time to help people even when I'm busy",
+      "textSanskrit": "व्यस्तोऽपि जनान् साहाय्यार्थं समयं ददामि",
+      "textTibetan": "ང་འཁྲིས་པའི་སྐབས་སུ་ཡང་གཞན་ལ་རོགས་པ་བྱེད་པར་དུས་ཚོད་འདེབས།",
+      "order": 2,
+      "reverseScored": false,
+      "paramitaAspect": "compassionate_action",
+      "weight": 1.2,
+      "responseOptions": [
+        { "value": 1, "label": "Never true" },
+        { "value": 2, "label": "Rarely true" },
+        { "value": 3, "label": "Sometimes true" },
+        { "value": 4, "label": "Often true" },
+        { "value": 5, "label": "Always true" }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "I feel good when I'm able to help someone in need",
+      "textSanskrit": "आवश्यकतायां किञ्चित् साहाय्यं कर्तुं समर्थे सति सुखं अनुभवामि",
+      "textTibetan": "མཁོ་བའི་སྐབས་སུ་གཞན་ལ་རོགས་པ་བྱེད་ཐུབ་པའི་སྐབས་སུ་སེམས་དགའ།",
+      "order": 3,
+      "reverseScored": false,
+      "paramitaAspect": "compassionate_joy",
+      "weight": 1.0,
+      "responseOptions": [
+        { "value": 1, "label": "Never true" },
+        { "value": 2, "label": "Rarely true" },
+        { "value": 3, "label": "Sometimes true" },
+        { "value": 4, "label": "Often true" },
+        { "value": 5, "label": "Always true" }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "I find it difficult to give to others when I have little myself",
+      "textSanskrit": "मम स्वस्य अल्पं सति अन्येभ्यो दानं दुष्करं लगति",
+      "textTibetan": "རང་ལ་ཆུང་ངུ་ཙམ་ཡོད་པའི་སྐབས་སུ་གཞན་ལ་སྦྱིན་པ་དཀའ།",
+      "order": 4,
+      "reverseScored": true,
+      "paramitaAspect": "selfless_giving",
+      "weight": 1.1,
+      "responseOptions": [
+        { "value": 1, "label": "Never true" },
+        { "value": 2, "label": "Rarely true" },
+        { "value": 3, "label": "Sometimes true" },
+        { "value": 4, "label": "Often true" },
+        { "value": 5, "label": "Always true" }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "I actively look for opportunities to help others",
+      "textSanskrit": "अन्यान् साहाय्यं कर्तुं अवसरान् सक्रियतया अन्वेषामि",
+      "textTibetan": "གཞན་ལ་རོགས་པ་བྱེད་པའི་གོ་སྐབས་འཚོལ་བ་ནས་རུང་བ་བྱེད།",
+      "order": 5,
+      "reverseScored": false,
+      "paramitaAspect": "proactive_compassion",
+      "weight": 1.3,
+      "responseOptions": [
+        { "value": 1, "label": "Never true" },
+        { "value": 2, "label": "Rarely true" },
+        { "value": 3, "label": "Sometimes true" },
+        { "value": 4, "label": "Often true" },
+        { "value": 5, "label": "Always true" }
+      ]
+    }
+  ],
+  "scoring": {
+    "method": "weighted_sum",
+    "maxScore": 100,
+    "normalizationFormula": "(raw_score / max_possible_score) * 100",
+    "reverseScoreFormula": "6 - original_score",
+    "weights": {
+      "compassionate_motivation": 1.0,
+      "compassionate_action": 1.2,
+      "compassionate_joy": 1.0,
+      "selfless_giving": 1.1,
+      "proactive_compassion": 1.3
+    }
+  },
+  "benchmarks": {
+    "general_population": {
+      "mean": 65.2,
+      "standardDeviation": 12.8,
+      "sampleSize": 1247
+    },
+    "meditation_practitioners": {
+      "mean": 73.5,
+      "standardDeviation": 11.2,
+      "sampleSize": 423
+    },
+    "buddhist_practitioners": {
+      "mean": 78.9,
+      "standardDeviation": 9.7,
+      "sampleSize": 189
+    }
+  },
+  "reliability": {
+    "cronbachsAlpha": 0.89,
+    "testRetestReliability": 0.85,
+    "interRaterReliability": 0.91
+  },
+  "validity": {
+    "constructValidity": "Strong correlation with existing compassion measures (r = 0.82)",
+    "convergentValidity": "Positive correlation with empathy scales (r = 0.67)",
+    "discriminantValidity": "Low correlation with narcissism scales (r = -0.34)"
+  }
+} 

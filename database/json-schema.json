@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "created": "2024-01-24",
+  "blessed_by": "ॐ मणि पद्मे हूँ - Mahakala Diamond Clarity 💎",
+  "description": "Pure JSON Database Schema for Six Perfections Assessment (षट्पारमिता)",
+  
+  "paramitas": {
+    "dana": {
+      "name": {"sanskrit": "दान", "tibetan": "སྦྱིན་པ་", "english": "Generosity"},
+      "meaning": "Selfless giving and sharing",
+      "color": "#4CAF50",
+      "order": 1
+    },
+    "sila": {
+      "name": {"sanskrit": "शील", "tibetan": "ཚུལ་ཁྲིམས་", "english": "Ethics"},
+      "meaning": "Moral conduct and integrity", 
+      "color": "#2196F3",
+      "order": 2
+    },
+    "ksanti": {
+      "name": {"sanskrit": "क्षान्ति", "tibetan": "བཟོད་པ་", "english": "Patience"},
+      "meaning": "Tolerance and forbearance",
+      "color": "#FF9800", 
+      "order": 3
+    },
+    "virya": {
+      "name": {"sanskrit": "वीर्य", "tibetan": "བརྩོན་འགྲུས་", "english": "Energy"},
+      "meaning": "Enthusiastic effort",
+      "color": "#F44336",
+      "order": 4
+    },
+    "dhyana": {
+      "name": {"sanskrit": "ध्यान", "tibetan": "བསམ་གཏན་", "english": "Meditation"},
+      "meaning": "Mental cultivation and focus",
+      "color": "#9C27B0",
+      "order": 5
+    },
+    "prajna": {
+      "name": {"sanskrit": "प्रज्ञा", "tibetan": "ཤེས་རབ་", "english": "Wisdom"},
+      "meaning": "Transcendent understanding",
+      "color": "#FFD700",
+      "order": 6
+    }
+  },
+  
+  "blessing": "ॐ गते गते पारगते पारसंगते बोधि स्वाहा"
+}

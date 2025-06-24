@@ -1,0 +1,9 @@
+# ॐ तारे तुत्तारे तुरे स्वाहा - Netlify Redirects for Six Perfections
+# Protected by Green Tara's swift action 💚
+
+# API Routes to Netlify Functions
+/api/auth/* /.netlify/functions/auth?action=:splat 200
+/api/health /.netlify/functions/health 200
+
+# SPA Fallback for frontend routing
+/* /index.html 200 

@@ -1,0 +1,174 @@
+{
+  "meditation": {
+    "id": "loving-kindness-basic",
+    "title": "Basic Loving-Kindness Meditation (Metta Bhavana)",
+    "titleSanskrit": "मैत्री भावना",
+    "titleTibetan": "བྱམས་པ་སྒོམ་པ་",
+    "titlePali": "Metta Bhavana",
+    "paramita": "generosity",
+    "tradition": "theravada",
+    "difficulty": "beginner",
+    "duration": 20,
+    "description": "A foundational practice for developing unconditional loving-kindness towards all beings, beginning with oneself and gradually extending to others.",
+    "source": "Visuddhimagga IX.1-43, Karaniya Metta Sutta",
+    "teacher": "Based on traditional Theravada instructions",
+    "language": "en"
+  },
+  "instructions": {
+    "preparation": [
+      "Find a comfortable seated position with your back straight",
+      "Close your eyes gently or soften your gaze downward", 
+      "Take three deep breaths to settle into the present moment",
+      "Bring to mind the intention to cultivate loving-kindness"
+    ],
+    "stages": [
+      {
+        "stage": 1,
+        "title": "Loving-kindness towards yourself",
+        "duration": 5,
+        "description": "Begin by directing loving-kindness towards yourself",
+        "phrases": [
+          "May I be happy",
+          "May I be healthy", 
+          "May I be peaceful",
+          "May I be free from suffering",
+          "May I live with ease"
+        ],
+        "phrasesSanskrit": [
+          "अहं सुखी भवेयम्",
+          "अहं स्वस्थो भवेयम्",
+          "अहं शान्तो भवेयम्",
+          "अहं दुःखात् मुक्तो भवेयम्",
+          "अहं सुखेन जीवेयम्"
+        ],
+        "phrasesTibetan": [
+          "བདག་སྐྱིད་པོ་ཡོང་བ་ཤོག",
+          "བདག་གི་ལུས་བདེ་བ་ཤོག",
+          "བདག་གི་སེམས་ཞི་བ་ཤོག",
+          "བདག་སྡུག་བསྔལ་ལས་གྲོལ་བ་ཤོག",
+          "བདག་བདེ་བ་དང་ལྡན་པར་འཚོ་བ་ཤོག"
+        ],
+        "guidance": "Visualize yourself surrounded by warm, golden light. Feel genuine care and kindness for yourself as you would for a dear friend."
+      },
+      {
+        "stage": 2,
+        "title": "Loving-kindness towards a loved one",
+        "duration": 4,
+        "description": "Bring to mind someone you love easily - family, friend, or teacher",
+        "phrases": [
+          "May you be happy",
+          "May you be healthy",
+          "May you be peaceful", 
+          "May you be free from suffering",
+          "May you live with ease"
+        ],
+        "guidance": "Visualize this person clearly and direct the same warm wishes towards them. Feel the natural love flowing from your heart."
+      },
+      {
+        "stage": 3,
+        "title": "Loving-kindness towards a neutral person",
+        "duration": 4,
+        "description": "Think of someone neutral - a neighbor, shopkeeper, or acquaintance",
+        "phrases": [
+          "May you be happy",
+          "May you be healthy",
+          "May you be peaceful",
+          "May you be free from suffering", 
+          "May you live with ease"
+        ],
+        "guidance": "This person is neither friend nor enemy. Practice extending the same genuine care towards them as you did for your loved one."
+      },
+      {
+        "stage": 4,
+        "title": "Loving-kindness towards a difficult person",
+        "duration": 4,
+        "description": "Gently bring to mind someone with whom you have difficulties",
+        "phrases": [
+          "May you be happy",
+          "May you be healthy",
+          "May you be peaceful",
+          "May you be free from suffering",
+          "May you live with ease"
+        ],
+        "guidance": "Start with someone mildly difficult, not your greatest enemy. Remember that their happiness contributes to less suffering in the world."
+      },
+      {
+        "stage": 5,
+        "title": "Loving-kindness towards all beings",
+        "duration": 3,
+        "description": "Extend loving-kindness to all beings everywhere",
+        "phrases": [
+          "May all beings be happy",
+          "May all beings be healthy",
+          "May all beings be peaceful",
+          "May all beings be free from suffering",
+          "May all beings live with ease"
+        ],
+        "phrasesSanskrit": [
+          "सर्वे सत्त्वाः सुखिनो भवन्तु",
+          "सर्वे सत्त्वाः स्वस्थाः भवन्तु", 
+          "सर्वे सत्त्वाः शान्ताः भवन्तु",
+          "सर्वे सत्त्वाः दुःखात् मुक्ताः भवन्तु",
+          "सर्वे सत्त्वाः सुखेन जीवन्तु"
+        ],
+        "guidance": "Visualize loving-kindness radiating outward from your heart to all corners of the universe, embracing all living beings."
+      }
+    ],
+    "closing": [
+      "Rest in the feeling of loving-kindness for a few moments",
+      "Notice any warmth or openness in your heart",
+      "Dedicate the merit of this practice to the benefit of all beings",
+      "Gently open your eyes and carry this loving awareness into your day"
+    ]
+  },
+  "benefits": [
+    "Develops unconditional love and compassion",
+    "Reduces anger, hatred, and ill-will",
+    "Increases feelings of connection and empathy",
+    "Promotes emotional well-being and happiness",
+    "Cultivates the paramita of generosity (dana)",
+    "Prepares the mind for deeper meditation practices"
+  ],
+  "scriptural_references": [
+    {
+      "text": "Karaniya Metta Sutta",
+      "translation": "This is what should be done by one who is skilled in goodness, and who knows the path of peace",
+      "source": "Sutta Nipata 1.8"
+    },
+    {
+      "text": "चित्तं चेतसो मुक्तं",
+      "translation": "The mind liberated by loving-kindness",
+      "source": "Majjhima Nikaya 7"
+    }
+  ],
+  "variations": [
+    {
+      "name": "Extended Practice",
+      "duration": 45,
+      "description": "Spend more time on each stage, adding specific groups like family, community, country, world"
+    },
+    {
+      "name": "Walking Metta",
+      "duration": 30,
+      "description": "Practice loving-kindness while walking slowly, sending metta to all beings you encounter"
+    },
+    {
+      "name": "Metta for Specific Qualities",
+      "duration": 25,
+      "description": "Focus on specific aspects like 'May you be free from fear', 'May you be confident', etc."
+    }
+  ],
+  "integration_practices": [
+    "Send loving-kindness to people you encounter throughout the day",
+    "When feeling angry or frustrated, return to metta phrases",
+    "Practice metta before difficult conversations or meetings",
+    "Use metta as a way to fall asleep peacefully",
+    "Include metta in daily prayer or reflection time"
+  ],
+  "cultural_context": {
+    "tradition": "This practice originates from the Buddha's teachings and is central to Theravada Buddhism",
+    "pali_term": "Metta (मित्र) comes from 'mitta' meaning friend",
+    "brahma_vihara": "One of the four Brahma-viharas (divine abodes): metta, karuna, mudita, upekkha",
+    "significance": "Considered essential preparation for insight meditation and liberation"
+  }
+} 

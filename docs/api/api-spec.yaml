@@ -1,0 +1,730 @@
+openapi: 3.0.3
+info:
+  title: Six Perfections Assessment API
+  description: |
+    षट्पारमिता (Six Perfections) Assessment API provides endpoints for measuring and developing 
+    the six Buddhist perfections (paramitas) through scientifically validated assessments and 
+    personalized training programs.
+    
+    ## The Six Perfections (परमिता)
+    
+    1. **Generosity (दान - Dana)** - The perfection of giving and selfless sharing
+    2. **Ethics (शील - Sila)** - The perfection of moral conduct and ethical behavior  
+    3. **Patience (क्षान्ति - Ksanti)** - The perfection of patience and emotional regulation
+    4. **Energy (वीर्य - Virya)** - The perfection of spiritual energy and perseverance
+    5. **Meditation (ध्यान - Dhyana)** - The perfection of concentration and mindfulness
+    6. **Wisdom (प्रज्ञा - Prajna)** - The perfection of understanding and insight
+    
+    ## Authentication
+    
+    Most endpoints require JWT authentication via the Authorization header:
+    ```
+    Authorization: Bearer <jwt_token>
+    ```
+    
+    ## Rate Limiting
+    
+    API requests are limited to 100 requests per 15-minute window per IP address.
+    
+  version: 1.0.0
+  contact:
+    name: Six Perfections Development Team
+    email: api@sixperfections.app
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: http://localhost:3000/api/v1
+    description: Development server
+  - url: https://api.sixperfections.app/v1
+    description: Production server
+
+security:
+  - BearerAuth: []
+
+paths:
+  # Authentication endpoints
+  /auth/register:
+    post:
+      tags: [Authentication]
+      summary: Register new user account
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password, firstName, lastName]
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: "user@example.com"
+                password:
+                  type: string
+                  minLength: 8
+                  example: "securePassword123"
+                firstName:
+                  type: string
+                  example: "Tenzin"
+                lastName:
+                  type: string
+                  example: "Norbu"
+                languagePreference:
+                  type: string
+                  enum: [en, ru, zh, ja, bo, sa]
+                  default: en
+      responses:
+        '201':
+          description: User successfully registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '409':
+          description: Email already exists
+
+  /auth/login:
+    post:
+      tags: [Authentication]
+      summary: Authenticate user login
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          description: Invalid credentials
+
+  # User management endpoints
+  /users/profile:
+    get:
+      tags: [Users]
+      summary: Get user profile
+      responses:
+        '200':
+          description: User profile retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+    
+    put:
+      tags: [Users]
+      summary: Update user profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserProfileUpdate'
+      responses:
+        '200':
+          description: Profile updated successfully
+
+  # Assessment endpoints
+  /assessments/initial:
+    post:
+      tags: [Assessments]
+      summary: Submit initial comprehensive assessment
+      description: |
+        Complete the initial 30-45 minute assessment that establishes baseline 
+        scores for all six paramitas.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [responses]
+              properties:
+                responses:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AssessmentResponse'
+                context:
+                  type: object
+                  description: Additional context about the assessment session
+                  properties:
+                    mood:
+                      type: integer
+                      minimum: 1
+                      maximum: 5
+                    meditationState:
+                      type: string
+                      enum: [before_practice, after_practice, neutral]
+                    timeOfDay:
+                      type: string
+                      enum: [morning, afternoon, evening, night]
+      responses:
+        '201':
+          description: Assessment completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssessmentResult'
+
+  /assessments/{paramita}:
+    post:
+      tags: [Assessments]
+      summary: Submit paramita-specific assessment
+      parameters:
+        - name: paramita
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/ParamitaType'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [responses]
+              properties:
+                responses:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AssessmentResponse'
+      responses:
+        '201':
+          description: Paramita assessment completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParamitaScore'
+
+  # Scoring endpoints
+  /scores/current:
+    get:
+      tags: [Scores]
+      summary: Get current paramita scores
+      responses:
+        '200':
+          description: Current scores retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  scores:
+                    type: object
+                    additionalProperties:
+                      $ref: '#/components/schemas/ParamitaScore'
+                  overallScore:
+                    type: number
+                    format: float
+                    minimum: 0
+                    maximum: 100
+                  lastAssessment:
+                    type: string
+                    format: date-time
+
+  /scores/history:
+    get:
+      tags: [Scores]
+      summary: Get historical score data
+      parameters:
+        - name: paramita
+          in: query
+          schema:
+            $ref: '#/components/schemas/ParamitaType'
+        - name: fromDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: toDate
+          in: query
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Score history retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  history:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProgressSnapshot'
+
+  # Training endpoints
+  /training/plan:
+    post:
+      tags: [Training]
+      summary: Generate personalized training plan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                focusParamita:
+                  $ref: '#/components/schemas/ParamitaType'
+                targetScore:
+                  type: number
+                  minimum: 0
+                  maximum: 100
+                timeCommitment:
+                  type: integer
+                  description: Minutes per day available for practice
+                preferences:
+                  type: object
+                  properties:
+                    meditationStyle:
+                      type: string
+                      enum: [mindfulness, concentration, loving_kindness, analytical]
+                    difficultyLevel:
+                      type: string
+                      enum: [beginner, intermediate, advanced]
+      responses:
+        '201':
+          description: Training plan generated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainingPlan'
+
+  /training/sessions:
+    get:
+      tags: [Training]
+      summary: Get available training sessions
+      parameters:
+        - name: paramita
+          in: query
+          schema:
+            $ref: '#/components/schemas/ParamitaType'
+        - name: difficulty
+          in: query
+          schema:
+            type: string
+            enum: [beginner, intermediate, advanced]
+      responses:
+        '200':
+          description: Training sessions retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TrainingSession'
+
+  # Progress tracking endpoints
+  /progress/track:
+    post:
+      tags: [Progress]
+      summary: Track daily practice activity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DailyPractice'
+      responses:
+        '201':
+          description: Practice logged successfully
+
+  /progress/weekly:
+    get:
+      tags: [Progress]
+      summary: Get weekly progress report
+      responses:
+        '200':
+          description: Weekly report retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeeklyReport'
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    ParamitaType:
+      type: string
+      enum: [generosity, ethics, patience, energy, meditation, wisdom]
+      description: The six Buddhist perfections (paramitas)
+
+    AuthResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT authentication token
+        refreshToken:
+          type: string
+          description: Refresh token for token renewal
+        user:
+          $ref: '#/components/schemas/User'
+        expiresAt:
+          type: string
+          format: date-time
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        firstName:
+          type: string
+        lastName:
+          type: string
+        displayName:
+          type: string
+        role:
+          type: string
+          enum: [user, premium_user, researcher, teacher, admin]
+        spiritualLevel:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+
+    UserProfile:
+      allOf:
+        - $ref: '#/components/schemas/User'
+        - type: object
+          properties:
+            bio:
+              type: string
+            location:
+              type: string
+            buddhistTradition:
+              type: string
+            meditationStyle:
+              type: string
+            practiceExperience:
+              type: integer
+              description: Years of practice experience
+            currentGoals:
+              type: array
+              items:
+                type: string
+            privacySettings:
+              type: object
+            notificationPreferences:
+              type: object
+
+    UserProfileUpdate:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        bio:
+          type: string
+        location:
+          type: string
+        buddhistTradition:
+          type: string
+        meditationStyle:
+          type: string
+        currentGoals:
+          type: array
+          items:
+            type: string
+
+    AssessmentResponse:
+      type: object
+      required: [questionId, responseValue]
+      properties:
+        questionId:
+          type: string
+          format: uuid
+        responseValue:
+          type: integer
+          minimum: 1
+          maximum: 7
+        responseText:
+          type: string
+        responseTime:
+          type: integer
+          description: Time taken to respond in seconds
+        confidenceLevel:
+          type: integer
+          minimum: 1
+          maximum: 5
+
+    AssessmentResult:
+      type: object
+      properties:
+        assessmentId:
+          type: string
+          format: uuid
+        scores:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ParamitaScore'
+        overallScore:
+          type: number
+          format: float
+        spiritualProfile:
+          $ref: '#/components/schemas/SpiritualProfile'
+        recommendations:
+          type: array
+          items:
+            type: string
+
+    ParamitaScore:
+      type: object
+      properties:
+        paramita:
+          $ref: '#/components/schemas/ParamitaType'
+        rawScore:
+          type: number
+          format: float
+        normalizedScore:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 100
+        percentileRank:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 100
+        confidenceInterval:
+          type: object
+          properties:
+            lower:
+              type: number
+              format: float
+            upper:
+              type: number
+              format: float
+        benchmarkGroup:
+          type: string
+        calculatedAt:
+          type: string
+          format: date-time
+
+    SpiritualProfile:
+      type: object
+      properties:
+        developmentStage:
+          type: string
+        strongestParamita:
+          $ref: '#/components/schemas/ParamitaType'
+        growthAreaParamita:
+          $ref: '#/components/schemas/ParamitaType'
+        practiceRecommendations:
+          type: array
+          items:
+            type: string
+        nextAssessmentRecommended:
+          type: string
+          format: date-time
+
+    ProgressSnapshot:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        paramita:
+          $ref: '#/components/schemas/ParamitaType'
+        score:
+          type: number
+          format: float
+        scoreChange:
+          type: number
+          format: float
+        notes:
+          type: string
+
+    TrainingPlan:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        focusParamita:
+          $ref: '#/components/schemas/ParamitaType'
+        targetScore:
+          type: number
+        dailySessions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrainingSession'
+        estimatedDuration:
+          type: integer
+          description: Estimated days to reach target
+        createdAt:
+          type: string
+          format: date-time
+
+    TrainingSession:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        description:
+          type: string
+        paramita:
+          $ref: '#/components/schemas/ParamitaType'
+        duration:
+          type: integer
+          description: Duration in minutes
+        difficulty:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        sessionType:
+          type: string
+          enum: [meditation, reflection, behavioral_exercise, study]
+        audioUrl:
+          type: string
+          format: uri
+        instructions:
+          type: array
+          items:
+            type: string
+
+    DailyPractice:
+      type: object
+      required: [practiceDate, practiceType, durationMinutes]
+      properties:
+        practiceDate:
+          type: string
+          format: date
+        practiceType:
+          type: string
+          enum: [meditation, reflection, behavioral_exercise, mindfulness_practice, study, community_service]
+        durationMinutes:
+          type: integer
+          minimum: 1
+        intensityLevel:
+          type: integer
+          minimum: 1
+          maximum: 5
+        paramitaFocus:
+          $ref: '#/components/schemas/ParamitaType'
+        qualityRating:
+          type: integer
+          minimum: 1
+          maximum: 5
+        notes:
+          type: string
+        moodBefore:
+          type: integer
+          minimum: 1
+          maximum: 5
+        moodAfter:
+          type: integer
+          minimum: 1
+          maximum: 5
+
+    WeeklyReport:
+      type: object
+      properties:
+        weekStarting:
+          type: string
+          format: date
+        totalPracticeMinutes:
+          type: integer
+        averageQualityRating:
+          type: number
+          format: float
+        paramitaProgress:
+          type: object
+          additionalProperties:
+            type: number
+            format: float
+        achievements:
+          type: array
+          items:
+            type: string
+        recommendations:
+          type: array
+          items:
+            type: string
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        code:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        path:
+          type: string
+        details:
+          type: object
+
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error' 
