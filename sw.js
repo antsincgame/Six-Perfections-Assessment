@@ -11,8 +11,8 @@ const urlsToCache = [
   '/src/js/api/supabase.js',
   '/src/js/assessment/paramitas.js',
   '/src/js/utils/blessings.js',
-  '/assets/lotus.svg',
-  'https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap'
+  '/assets/lotus.svg'
+  // Note: Google Fonts removed from cache due to CSP - they will be fetched from network
 ];
 
 // Buddhist blessing for installation
@@ -54,7 +54,8 @@ self.addEventListener('fetch', event => {
   // Skip non-GET requests and external API calls
   if (event.request.method !== 'GET' || 
       event.request.url.includes('supabase.co') ||
-      event.request.url.includes('googleapis.com/')) {
+      event.request.url.includes('googleapis.com') ||
+      event.request.url.includes('gstatic.com')) {
     return;
   }
 

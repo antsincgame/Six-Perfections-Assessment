@@ -49,9 +49,9 @@ class SixPerfectionsApp {
 
     // Form submissions
     document.addEventListener('submit', (e) => {
-      if (e.target.matches('.assessment-form')) {
+      if (e.target.matches('.auth-form')) {
         e.preventDefault();
-        this.handleAssessmentSubmission(e.target);
+        this.handleAuthSubmission(e.target);
       }
     });
   }
@@ -128,22 +128,34 @@ class SixPerfectionsApp {
     this.loadUserProgress();
   }
 
-  showAuthModal() {
+  showAuthModal(mode = 'login') {
+    // Remove existing modal if any
+    const existingModal = document.querySelector('.auth-modal');
+    if (existingModal) {
+      existingModal.remove();
+    }
+
     const modal = document.createElement('div');
     modal.className = 'auth-modal';
     modal.innerHTML = `
       <div class="modal-content">
         <button class="modal-close" data-action="close-modal">&times;</button>
-        <h2>🙏 Join the Path</h2>
-        <p>Create an account to begin your Six Perfections journey</p>
+        <h2>🙏 ${mode === 'login' ? 'Enter the Path' : 'Join the Path'}</h2>
+        <p>${mode === 'login' ? 'Welcome back to your spiritual journey' : 'Create an account to begin your Six Perfections journey'}</p>
         
-        <form class="auth-form" id="login-form">
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Password" required>
-          <button type="submit">Sign In</button>
+        <form class="auth-form" data-mode="${mode}">
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="password" name="password" placeholder="Password" required>
+          ${mode === 'register' ? '<input type="password" name="confirmPassword" placeholder="Confirm Password" required>' : ''}
+          <button type="submit">${mode === 'login' ? 'Sign In' : 'Create Account'}</button>
         </form>
         
-        <p>Don't have an account? <a href="#" data-action="show-register">Register here</a></p>
+        <p>
+          ${mode === 'login' 
+            ? 'Don\'t have an account? <a href="#" data-action="show-register">Register here</a>' 
+            : 'Already have an account? <a href="#" data-action="show-login">Sign in here</a>'
+          }
+        </p>
         
         <div class="blessing">
           <p>ॐ गते गते पारगते पारसंगते बोधि स्वाहा</p>
@@ -152,12 +164,6 @@ class SixPerfectionsApp {
     `;
 
     document.body.appendChild(modal);
-    
-    // Add event listeners for auth
-    modal.querySelector('#login-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      this.handleLogin(e.target);
-    });
   }
 
   async handleAction(action, element) {
@@ -172,29 +178,54 @@ class SixPerfectionsApp {
         element.closest('.auth-modal').remove();
         break;
       case 'show-register':
-        this.showRegisterForm();
+        this.showAuthModal('register');
+        break;
+      case 'show-login':
+        this.showAuthModal('login');
         break;
       default:
         console.log(`Unknown action: ${action}`);
     }
   }
 
-  async handleLogin(form) {
+  async handleAuthSubmission(form) {
     const formData = new FormData(form);
     const email = formData.get('email');
     const password = formData.get('password');
+    const mode = form.dataset.mode;
 
     try {
-      const result = await this.api.signIn(email, password);
-      if (result.user) {
-        this.currentUser = result.user;
-        document.querySelector('.auth-modal').remove();
-        this.showUserDashboard();
-        this.blessings.showSuccess('🙏 Welcome to the path of enlightenment!');
+      let result;
+      
+      if (mode === 'register') {
+        const confirmPassword = formData.get('confirmPassword');
+        if (password !== confirmPassword) {
+          throw new Error('Passwords do not match');
+        }
+        
+        this.blessings.blessFormSubmission('register');
+        result = await this.api.signUp(email, password, {
+          spiritual_path: 'six_perfections',
+          joined_at: new Date().toISOString()
+        });
+        
+        if (result.user) {
+          this.blessings.showSuccess('🙏 Welcome to the path! Please check your email to verify your account.');
+        }
+      } else {
+        this.blessings.blessFormSubmission('login');
+        result = await this.api.signIn(email, password);
+        
+        if (result.user) {
+          this.currentUser = result.user;
+          document.querySelector('.auth-modal').remove();
+          this.showUserDashboard();
+          this.blessings.showSuccess('🙏 Welcome back to the path of enlightenment!');
+        }
       }
     } catch (error) {
-      console.error('Login failed:', error);
-      this.blessings.showError('Login failed. Please check your credentials.');
+      console.error('Authentication failed:', error);
+      this.blessings.showError(`Authentication failed: ${error.message}`);
     }
   }
 

@@ -1,1 +1,42 @@
- 
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="lotus-gradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF9933;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="96" cy="96" r="96" fill="#4169E1" opacity="0.1"/>
+  
+  <!-- Lotus petals -->
+  <g fill="none" stroke="#4169E1" stroke-width="3" opacity="0.8">
+    <!-- Center vertical petal -->
+    <path d="M96 168c0-36-24-60-24-60s24-24 24-60 24 24 24 60-24 24-24 60z"/>
+    <!-- Bottom petals -->
+    <path d="M48 120c24-24 48-12 48-12s24-12 48 12-12 48-48 48-72-24-48-48z"/>
+    <!-- Top petals -->
+    <path d="M48 72c24 24 48 12 48 12s24 12 48-12-12-48-48-48-72 24-48 48z"/>
+    <!-- Left petals -->
+    <path d="M24 96c36 0 60-24 60-24s24 24 60 24-24 24-60 24-24 24-60 24z"/>
+    <!-- Right petals -->
+    <path d="M168 96c-36 0-60 24-60 24s-24-24-60-24 24-24 60-24 24-24 60-24z"/>
+  </g>
+  
+  <!-- Outer petals for depth -->
+  <g fill="#4169E1" opacity="0.3">
+    <ellipse cx="96" cy="48" rx="16" ry="32" transform="rotate(0 96 48)"/>
+    <ellipse cx="96" cy="144" rx="16" ry="32" transform="rotate(180 96 144)"/>
+    <ellipse cx="48" cy="96" rx="32" ry="16" transform="rotate(90 48 96)"/>
+    <ellipse cx="144" cy="96" rx="32" ry="16" transform="rotate(270 144 96)"/>
+  </g>
+  
+  <!-- Center sacred geometry -->
+  <circle cx="96" cy="96" r="24" fill="url(#lotus-gradient)"/>
+  <circle cx="96" cy="96" r="12" fill="#FF9933"/>
+  <circle cx="96" cy="96" r="6" fill="#FFD700"/>
+  
+  <!-- Sacred symbol in center -->
+  <text x="96" y="104" text-anchor="middle" font-family="serif" font-size="16" fill="#800020">ॐ</text>
+</svg> 

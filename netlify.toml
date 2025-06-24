@@ -6,7 +6,7 @@
   publish = "dist"
   
   # Simple build command without bundlers - Алмазный ум approach
-  command = "mkdir -p dist && cp index.html dist/ && cp -r src dist/ && cp -r assets dist/ 2>/dev/null || true && echo 'Green Tara build complete! 💚'"
+  command = "mkdir -p dist && cp index.html dist/ && cp manifest.json dist/ && cp sw.js dist/ && cp -r src dist/ && cp -r assets dist/ && cp _redirects dist/ && echo 'Green Tara build complete! 💚'"
   
   # Node.js version for functions only
   environment = { NODE_VERSION = "18" }
@@ -53,7 +53,7 @@
   to = "/index.html"
   status = 200
 
-# 🛡️ Headers for security (Mahakala's protection)
+# 🛡️ Headers for security (Mahakala's protection) - Updated for Google Fonts
 [[headers]]
   for = "/*"
   [headers.values]
@@ -61,7 +61,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://qkrcohrfsidbwhmkcppb.supabase.co https://*.supabase.co"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://qkrcohrfsidbwhmkcppb.supabase.co https://*.supabase.co https://fonts.googleapis.com https://fonts.gstatic.com"
 
 [[headers]]
   for = "/api/*"
