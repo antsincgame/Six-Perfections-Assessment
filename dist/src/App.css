@@ -1,0 +1,450 @@
+/* ॐ तारे तुत्तारे तुरे स्वाहा - Six Perfections Styles */
+/* Protected by Green Tara's aesthetic wisdom 💚 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #333;
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.header h2 {
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: #888;
+  font-style: italic;
+}
+
+.health-status {
+  display: inline-flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.health-status.healthy {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.health-status.unhealthy {
+  background: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Authentication Styles */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.auth-forms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+.auth-form {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.auth-form h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #4ECDC4;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(45deg, #4ECDC4, #44A08D);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.auth-form button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.auth-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Dashboard Styles */
+.dashboard {
+  text-align: center;
+}
+
+.user-info {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-info h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.user-info p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.logout-btn {
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Paramitas Grid */
+.paramitas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.paramita-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border-left: 4px solid;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.paramita-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.paramita-card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.paramita-card h5 {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.paramita-card p {
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* Message Display */
+.message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  font-weight: 500;
+  z-index: 1000;
+  min-width: 300px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.message.success {
+  background: rgba(76, 175, 80, 0.95);
+  color: white;
+  border: 2px solid rgba(76, 175, 80, 0.3);
+}
+
+.message.error {
+  background: rgba(244, 67, 54, 0.95);
+  color: white;
+  border: 2px solid rgba(244, 67, 54, 0.3);
+}
+
+.message p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+  opacity: 0.8;
+}
+
+.footer p:first-child {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.footer p:last-child {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-forms {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .main {
+    padding: 1rem;
+  }
+  
+  .paramitas-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .message {
+    margin: 1rem;
+    min-width: auto;
+    left: 1rem;
+    right: 1rem;
+    transform: translateY(-50%);
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Buddhist-inspired animations */
+@keyframes lotus-bloom {
+  0% {
+    transform: scale(0.8) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 0.9;
+  }
+}
+
+.paramita-card {
+  animation: lotus-bloom 3s ease-in-out infinite;
+}
+
+/* Meditation breathing effect */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.header h1 {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+/* Additional styles for perfect functionality */
+.paramitas-section {
+  margin-top: 2rem;
+}
+
+.paramitas-section h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* Action buttons hover effects */
+.action-btn.primary:hover {
+  background: linear-gradient(45deg, #44A08D, #4ECDC4);
+}
+
+.action-btn.secondary:hover {
+  background: linear-gradient(45deg, #764ba2, #667eea);
+}
+
+/* Health status enhancements */
+.health-status span {
+  font-weight: 500;
+}
+
+/* Loading Animation */
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+  color: white;
+}
+
+.loading h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  animation: lotus-bloom 3s ease-in-out infinite;
+}
+
+.loading p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Action Buttons */
+.action-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 140px;
+}
+
+.action-btn.primary {
+  background: linear-gradient(45deg, #4ECDC4, #44A08D);
+  color: white;
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.action-btn.secondary {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+} 

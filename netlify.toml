@@ -1,25 +1,25 @@
 # ॐ तारे तुत्तारे तुरे स्वाहा - Netlify Configuration for Six Perfections
-# Protected by Green Tara's swift action 💚
+# Protected by Green Tara's swift action 💚 - Pure JavaScript Approach
 
 [build]
-  # Build directory for the web application (now in root)
+  # Build directory for the web application (static files)
   publish = "dist"
   
-  # Build command for the frontend (now in root)
-  command = "npm install && npm run build"
+  # Simple build command without bundlers - Алмазный ум approach
+  command = "mkdir -p dist && cp index.html dist/ && cp -r src dist/ && cp -r assets dist/ 2>/dev/null || true && echo 'Green Tara build complete! 💚'"
   
-  # Node.js version
+  # Node.js version for functions only
   environment = { NODE_VERSION = "18" }
 
 [build.processing]
   skip_processing = false
 
 [build.processing.css]
-  bundle = true
+  bundle = false
   minify = true
 
 [build.processing.js]
-  bundle = true
+  bundle = false
   minify = true
 
 [build.processing.html]
@@ -29,7 +29,7 @@
 [functions]
   directory = "netlify/functions"
   
-# 💎 Environment variables for Pure JSON Architecture
+# 💎 Environment variables for Pure JavaScript Architecture
 [context.production.environment]
   NODE_ENV = "production"
   JWT_SECRET = "six_perfections_diamond_mind_production_secret_2024"
@@ -61,7 +61,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://qkrcohrfsidbwhmkcppb.supabase.co https://*.supabase.co"
 
 [[headers]]
   for = "/api/*"
@@ -84,6 +84,11 @@
 
 # 🌟 Cache static assets (dharma is eternal)
 [[headers]]
-  for = "/static/*"
+  for = "/src/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable" 
+
+[[headers]]
+  for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable" 

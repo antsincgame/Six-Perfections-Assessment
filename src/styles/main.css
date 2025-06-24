@@ -1,0 +1,700 @@
+/* ॐ तारे तुत्तारे तुरे स्वाहा - Pure CSS Styling
+   Green Tara's beautiful design without bundlers 💚
+   Diamond Mind aesthetics - Алмазный ум */
+
+:root {
+  /* Buddhist Color Palette */
+  --saffron: #FF9933;
+  --maroon: #800020;
+  --golden: #FFD700;
+  --lotus-pink: #FFB6C1;
+  --dharma-blue: #4169E1;
+  --bodhi-green: #228B22;
+  --pure-white: #FFFFFF;
+  --mind-gray: #F8F9FA;
+  --shadow-dark: rgba(0, 0, 0, 0.1);
+  
+  /* Typography */
+  --font-sanskrit: 'Noto Sans Devanagari', serif;
+  --font-main: 'Inter', sans-serif;
+  
+  /* Spacing (based on Buddhist eightfold path) */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-xxl: 4rem;
+  
+  /* Border radius inspired by lotus petals */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--golden) 100%);
+  color: white;
+  padding: var(--space-lg);
+  text-align: center;
+  box-shadow: 0 4px 20px var(--shadow-dark);
+}
+
+.header h1 {
+  font-family: var(--font-sanskrit);
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+/* Main Content */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* Welcome Card */
+.welcome-card {
+  background: var(--pure-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xxl);
+  box-shadow: 0 10px 40px var(--shadow-dark);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.welcome-card h2 {
+  color: var(--maroon);
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+  font-family: var(--font-sanskrit);
+}
+
+.welcome-card > p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Paramitas Grid */
+.paramitas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.paramita-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.paramita-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.paramita-card h3 {
+  font-family: var(--font-sanskrit);
+  font-size: 1.3rem;
+  margin-bottom: var(--space-xs);
+}
+
+.paramita-card p {
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* Buttons */
+.cta-button {
+  background: linear-gradient(135deg, var(--bodhi-green) 0%, var(--dharma-blue) 100%);
+  color: white;
+  border: none;
+  padding: var(--space-md) var(--space-xl);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.secondary-button {
+  background: var(--pure-white);
+  color: var(--dharma-blue);
+  border: 2px solid var(--dharma-blue);
+  padding: var(--space-md) var(--space-lg);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: var(--space-md);
+}
+
+.secondary-button:hover {
+  background: var(--dharma-blue);
+  color: white;
+}
+
+/* Dashboard Styles */
+.dashboard {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.progress-overview {
+  background: var(--pure-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  box-shadow: 0 8px 25px var(--shadow-dark);
+}
+
+.progress-overview h2 {
+  color: var(--maroon);
+  font-family: var(--font-sanskrit);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.paramitas-progress {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+}
+
+.progress-card {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.progress-card h3 {
+  font-family: var(--font-sanskrit);
+  margin-bottom: var(--space-md);
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.3);
+  height: 8px;
+  border-radius: 4px;
+  margin: var(--space-md) 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: white;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.level {
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.score {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Modal Styles */
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--pure-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xxl);
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999;
+}
+
+.auth-form {
+  margin: var(--space-lg) 0;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  border: 2px solid #e1e5e9;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--dharma-blue);
+}
+
+.auth-form button {
+  width: 100%;
+  background: var(--dharma-blue);
+  color: white;
+  border: none;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-form button:hover {
+  background: #2c5aa0;
+}
+
+/* Assessment Styles */
+.assessment {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.assessment-container {
+  background: var(--pure-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: 0 8px 25px var(--shadow-dark);
+}
+
+/* Logout Button */
+.logout-btn {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .welcome-card {
+    padding: var(--space-lg);
+  }
+  
+  .paramitas-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .secondary-button {
+    margin-left: 0;
+    margin-top: var(--space-md);
+    display: block;
+    width: 100%;
+  }
+  
+  .paramitas-progress {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Buddhist Decorative Elements */
+.blessing {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid #e1e5e9;
+  color: #666;
+  font-style: italic;
+  font-family: var(--font-sanskrit);
+}
+
+/* Animations */
+@keyframes lotus-bloom {
+  0% { transform: scale(0.8) rotate(-5deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.paramita-card {
+  animation: lotus-bloom 0.6s ease-out forwards;
+}
+
+.paramita-card:nth-child(1) { animation-delay: 0.1s; }
+.paramita-card:nth-child(2) { animation-delay: 0.2s; }
+.paramita-card:nth-child(3) { animation-delay: 0.3s; }
+.paramita-card:nth-child(4) { animation-delay: 0.4s; }
+.paramita-card:nth-child(5) { animation-delay: 0.5s; }
+.paramita-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  color: white;
+  font-weight: 500;
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification.success {
+  background: var(--bodhi-green);
+}
+
+.notification.error {
+  background: #dc3545;
+}
+
+/* Assessment Question Styles */
+.assessment-progress {
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.assessment-progress .progress-text {
+  margin-top: var(--space-sm);
+  color: var(--dharma-blue);
+  font-weight: 500;
+}
+
+.question-card {
+  background: var(--pure-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: 0 4px 20px var(--shadow-dark);
+}
+
+.paramita-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--golden) 100%);
+  color: white;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-lg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+  font-family: var(--font-sanskrit);
+}
+
+.question-text {
+  font-size: 1.3rem;
+  color: var(--maroon);
+  margin-bottom: var(--space-md);
+  line-height: 1.5;
+}
+
+.sanskrit-text {
+  font-family: var(--font-sanskrit);
+  color: var(--dharma-blue);
+  font-style: italic;
+  margin-bottom: var(--space-xl);
+  font-size: 1rem;
+}
+
+.response-scale {
+  margin: var(--space-xl) 0;
+}
+
+.scale-label {
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+  text-align: center;
+  color: #333;
+}
+
+.scale-options {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.scale-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.scale-option:hover {
+  background: var(--mind-gray);
+  border-color: var(--dharma-blue);
+}
+
+.scale-option input {
+  display: none;
+}
+
+.scale-option input:checked + .option-label {
+  background: var(--dharma-blue);
+  color: white;
+}
+
+.option-label {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+  transition: all 0.3s ease;
+}
+
+.option-text {
+  font-size: 0.8rem;
+  text-align: center;
+  color: #666;
+  line-height: 1.2;
+}
+
+.question-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-lg);
+  border-top: 1px solid #e1e5e9;
+}
+
+.prev-btn, .next-btn {
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.prev-btn {
+  background: var(--pure-white);
+  color: var(--dharma-blue);
+  border: 2px solid var(--dharma-blue);
+}
+
+.prev-btn:hover {
+  background: var(--dharma-blue);
+  color: white;
+}
+
+.next-btn {
+  background: var(--bodhi-green);
+  color: white;
+  border: none;
+}
+
+.next-btn:hover:not(:disabled) {
+  background: #1e7e1e;
+}
+
+.next-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Results Styles */
+.results-container {
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.results-container h2 {
+  color: var(--maroon);
+  font-family: var(--font-sanskrit);
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+}
+
+.results-blessing {
+  font-family: var(--font-sanskrit);
+  color: var(--dharma-blue);
+  font-size: 1.1rem;
+  margin-bottom: var(--space-xl);
+  font-style: italic;
+}
+
+.scores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.score-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.score-card h3 {
+  font-family: var(--font-sanskrit);
+  margin-bottom: var(--space-md);
+  font-size: 1.1rem;
+}
+
+.score-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-md) auto;
+}
+
+.score-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.score-level {
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.score-bar {
+  background: rgba(255, 255, 255, 0.3);
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.score-fill {
+  background: white;
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s ease;
+}
+
+.results-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Mobile Responsive for Assessment */
+@media (max-width: 768px) {
+  .scale-options {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xs);
+  }
+  
+  .scale-option {
+    padding: var(--space-sm);
+  }
+  
+  .option-label {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .option-text {
+    font-size: 0.7rem;
+  }
+  
+  .question-actions {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .prev-btn, .next-btn {
+    width: 100%;
+  }
+  
+  .results-actions {
+    flex-direction: column;
+  }
+  
+  .results-actions button {
+    width: 100%;
+  }
+}
+
+/* 🙏 May this CSS guide all beings through their spiritual assessment */ 
